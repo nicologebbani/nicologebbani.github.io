@@ -1,4 +1,4 @@
----
+ ---
 import '../styles/global.css';
 
 const name = "Nicolò Gebbani";
@@ -6,7 +6,6 @@ const university = "Ca' Foscari University of Venice";
 const email = "nicolo.gebbani@unive.it";
 const fields = ["Environmental Microeconomics", "Development Economics", "Applied Micro"];
 
-// Official Ca' Foscari Red
 const univeRed = "#AC0033";
 
 const presentations = [
@@ -38,64 +37,64 @@ const wip = [
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{name} | Economics Research</title>
 	</head>
-	<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed">
+	<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed overflow-x-hidden">
 
 		<nav class="sticky top-0 z-50 bg-slate-50/90 backdrop-blur-sm border-b border-slate-200">
-			<div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-				<a href="#" class="font-bold text-lg tracking-tight" style={`color: ${univeRed}`}>{name}</a>
-				<div class="flex space-x-6 text-sm font-semibold">
+			<div class="max-w-4xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+				<a href="#" class="font-bold text-base md:text-lg tracking-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px] md:max-w-none" style={`color: ${univeRed}`}>{name}</a>
+				<div class="flex items-center space-x-3 md:space-x-8 text-[12px] md:text-sm font-semibold">
 					<a href="#research" class="hover:text-slate-600">Research</a>
-					<a href="#presentations" class="hover:text-slate-600">Presentations</a>
-					<a href="/cv.pdf" target="_blank" class="px-3 py-1 rounded border transition-all" style={`border-color: ${univeRed}; color: ${univeRed}; background: transparent;`}>CV (PDF)</a>
+					<a href="#presentations" class="hover:text-slate-600 hidden xs:inline">Talks</a>
+					<a href="/cv.pdf" target="_blank" class="px-2 py-1 md:px-3 md:py-1 rounded border transition-all whitespace-nowrap" style={`border-color: ${univeRed}; color: ${univeRed}; background: transparent;`}>CV (PDF)</a>
 				</div>
 			</div>
 		</nav>
 
-		<main class="max-w-4xl mx-auto px-6 pb-24">
+		<main class="max-w-4xl mx-auto px-4 md:px-6 pb-24">
 			
-			<section class="py-20 flex flex-col md:flex-row items-center gap-12 border-b border-slate-200">
-				<div class="w-56 h-56 md:w-72 md:h-72 flex-shrink-0">
+			<section class="py-12 md:py-20 flex flex-col md:flex-row items-center gap-8 md:gap-12 border-b border-slate-200">
+				<div class="w-48 h-48 md:w-72 md:h-72 flex-shrink-0">
 					<img 
 						src="/headshot.jpg" 
 						alt={name} 
-						class="rounded-3xl object-cover shadow-2xl border-4 border-white ring-1 ring-slate-200"
+						class="rounded-3xl object-cover shadow-xl border-4 border-white ring-1 ring-slate-200 w-full h-full"
 					/>
 				</div>
 
 				<div class="flex-1 text-center md:text-left">
-					<h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-slate-900">
+					<h1 class="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 tracking-tight text-slate-900">
 						{name}
 					</h1>
-					<p class="text-xl text-slate-600 mb-8 leading-relaxed">
-						PhD Candidate in Science and management of Climate Change at <span class="font-semibold text-slate-900">{university}</span>. <br/>
-						{fields.join(" | ")}
+					<p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
+						PhD Candidate in Economics at <span class="font-semibold text-slate-900">{university}</span>. <br class="hidden md:block"/>
+						<span class="text-sm md:text-xl">{fields.join(" | ")}</span>
 					</p>
-					<div class="flex flex-wrap justify-center md:justify-start gap-4">
-						<a href="/cv.pdf" target="_blank" class="px-8 py-3 rounded-xl font-bold text-white shadow-lg transition-transform hover:scale-105" style={`background-color: ${univeRed}`}>
+					<div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+						<a href="/cv.pdf" target="_blank" class="w-full sm:w-auto text-center px-8 py-3 rounded-xl font-bold text-white shadow-lg transition-transform hover:scale-105" style={`background-color: ${univeRed}`}>
 							Download Full CV
 						</a>
-						<a href={`mailto:${email}`} class="border border-slate-300 bg-white px-8 py-3 rounded-xl font-bold hover:bg-slate-50 transition shadow-sm">
+						<a href={`mailto:${email}`} class="w-full sm:w-auto text-center border border-slate-300 bg-white px-8 py-3 rounded-xl font-bold hover:bg-slate-50 transition shadow-sm">
 							Contact
 						</a>
 					</div>
 				</div>
 			</section>
 
-			<section id="research" class="py-20">
-				<h2 class="text-3xl font-bold mb-10 flex items-center">
+			<section id="research" class="py-16 md:py-20">
+				<h2 class="text-2xl md:text-3xl font-bold mb-10 flex items-center">
 					<span class="w-2 h-8 rounded-full mr-4" style={`background-color: ${univeRed}`}></span> Research & Projects
 				</h2>
 				
 				<div class="space-y-12">
 					{wip.map((paper) => (
-						<div class="group border-l-2 pl-6 transition-colors" style={`border-color: ${univeRed}40;`}>
-							<h3 class="text-xl font-bold text-slate-900 group-hover:text-slate-700 transition-colors">
+						<div class="group border-l-2 pl-4 md:pl-6 transition-colors" style={`border-color: ${univeRed}40;`}>
+							<h3 class="text-lg md:text-xl font-bold text-slate-900 leading-snug">
 								{paper.title}
 							</h3>
-							<p class="text-slate-500 text-sm mt-2 font-medium">
+							<p class="text-slate-500 text-xs md:text-sm mt-2 font-medium">
 								{paper.authors}
 							</p>
 							<span class="inline-block mt-3 px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black uppercase tracking-widest rounded">
@@ -106,19 +105,19 @@ const wip = [
 				</div>
 			</section>
 
-			<section id="presentations" class="py-20">
-				<h2 class="text-3xl font-bold mb-10 flex items-center">
-					<span class="w-2 h-8 rounded-full mr-4" style={`background-color: ${univeRed}`}></span> Selected Presentations
+			<section id="presentations" class="py-16 md:py-20">
+				<h2 class="text-2xl md:text-3xl font-bold mb-10 flex items-center">
+					<span class="w-2 h-8 rounded-full mr-4" style={`background-color: ${univeRed}`}></span> Presentations
 				</h2>
 				
 				<div class="grid gap-4">
 					{presentations.map((p) => (
-						<div class="flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-slate-200 rounded-2xl hover:shadow-md transition-shadow">
-							<div>
-								<h4 class="font-bold text-lg text-slate-900">{p.event}</h4>
-								<p class="text-slate-600 text-sm">{p.location} — {p.role}</p>
+						<div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-white border border-slate-200 rounded-2xl">
+							<div class="mb-3 sm:mb-0">
+								<h4 class="font-bold text-base md:text-lg text-slate-900">{p.event}</h4>
+								<p class="text-slate-600 text-xs md:text-sm">{p.location} — {p.role}</p>
 							</div>
-							<div class="text-sm font-bold mt-2 md:mt-0 px-3 py-1 rounded" style={`background-color: ${univeRed}15; color: ${univeRed};`}>
+							<div class="text-[10px] md:text-sm font-bold px-3 py-1 rounded self-start sm:self-center" style={`background-color: ${univeRed}15; color: ${univeRed};`}>
 								{p.date}
 							</div>
 						</div>
@@ -128,9 +127,8 @@ const wip = [
 
 		</main>
 
-		<footer class="max-w-4xl mx-auto px-6 py-12 border-t border-slate-200 flex justify-between items-center text-slate-400 text-xs">
+		<footer class="max-w-4xl mx-auto px-6 py-12 border-t border-slate-200 text-center md:text-left text-slate-400 text-[10px] md:text-xs">
 			<p>&copy; 2026 {name} | {university}</p>
-			<p>Last updated: Jan 2026</p>
 		</footer>
 
 	</body>

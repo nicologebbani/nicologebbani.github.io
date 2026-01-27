@@ -1,0 +1,137 @@
+---
+import '../styles/global.css';
+
+const name = "Nicolò Gebbani";
+const university = "Ca' Foscari University of Venice";
+const email = "nicolo.gebbani@unive.it";
+const fields = ["Environmental Microeconomics", "Development Economics", "Applied Micro"];
+
+// Official Ca' Foscari Red
+const univeRed = "#AC0033";
+
+const presentations = [
+  { event: "IAAE 2025", date: "June 2025", location: "Turin, Italy", role: "Paper presenter" },
+  { event: "10th DENEB Workshop", date: "June 2025", location: "Potsdam, Germany", role: "Paper presenter" },
+  { event: "Fragile Lives 2024", date: "October 2024", location: "Berlin, Germany", role: "Paper presenter" }
+];
+
+const wip = [
+  { 
+    title: "Roads to violence: spatial and temporal patterns in Ethiopian conflicts", 
+    authors: "Nicolò Gebbani", 
+    status: "Work in progress" 
+  },
+  { 
+    title: "Too hot for crops? A comparative analysis of heat shock impacts on household food insecurity in rural Ethiopia", 
+    authors: "Nicolò Gebbani, Sophia Chiara Weituschat, Lisa Murken, Enrica De Cian", 
+    status: "Work in progress" 
+  },
+  { 
+    title: "Climate-food-conflict nexus: a systematic scoping review", 
+    authors: "Nicolò Gebbani, Shouro Dasgupta, Elizabeth J.Z. Robinson", 
+    status: "In review" 
+  }
+];
+---
+
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{name} | Economics Research</title>
+	</head>
+	<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed">
+
+		<nav class="sticky top-0 z-50 bg-slate-50/90 backdrop-blur-sm border-b border-slate-200">
+			<div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+				<a href="#" class="font-bold text-lg tracking-tight" style={`color: ${univeRed}`}>{name}</a>
+				<div class="flex space-x-6 text-sm font-semibold">
+					<a href="#research" class="hover:text-slate-600">Research</a>
+					<a href="#presentations" class="hover:text-slate-600">Presentations</a>
+					<a href="/cv.pdf" target="_blank" class="px-3 py-1 rounded border transition-all" style={`border-color: ${univeRed}; color: ${univeRed}; background: transparent;`}>CV (PDF)</a>
+				</div>
+			</div>
+		</nav>
+
+		<main class="max-w-4xl mx-auto px-6 pb-24">
+			
+			<section class="py-20 flex flex-col md:flex-row items-center gap-12 border-b border-slate-200">
+				<div class="w-56 h-56 md:w-72 md:h-72 flex-shrink-0">
+					<img 
+						src="/headshot.jpg" 
+						alt={name} 
+						class="rounded-3xl object-cover shadow-2xl border-4 border-white ring-1 ring-slate-200"
+					/>
+				</div>
+
+				<div class="flex-1 text-center md:text-left">
+					<h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-slate-900">
+						{name}
+					</h1>
+					<p class="text-xl text-slate-600 mb-8 leading-relaxed">
+						PhD Candidate in Science and management of Climate Change at <span class="font-semibold text-slate-900">{university}</span>. <br/>
+						{fields.join(" | ")}
+					</p>
+					<div class="flex flex-wrap justify-center md:justify-start gap-4">
+						<a href="/cv.pdf" target="_blank" class="px-8 py-3 rounded-xl font-bold text-white shadow-lg transition-transform hover:scale-105" style={`background-color: ${univeRed}`}>
+							Download Full CV
+						</a>
+						<a href={`mailto:${email}`} class="border border-slate-300 bg-white px-8 py-3 rounded-xl font-bold hover:bg-slate-50 transition shadow-sm">
+							Contact
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section id="research" class="py-20">
+				<h2 class="text-3xl font-bold mb-10 flex items-center">
+					<span class="w-2 h-8 rounded-full mr-4" style={`background-color: ${univeRed}`}></span> Research & Projects
+				</h2>
+				
+				<div class="space-y-12">
+					{wip.map((paper) => (
+						<div class="group border-l-2 pl-6 transition-colors" style={`border-color: ${univeRed}40;`}>
+							<h3 class="text-xl font-bold text-slate-900 group-hover:text-slate-700 transition-colors">
+								{paper.title}
+							</h3>
+							<p class="text-slate-500 text-sm mt-2 font-medium">
+								{paper.authors}
+							</p>
+							<span class="inline-block mt-3 px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black uppercase tracking-widest rounded">
+								{paper.status}
+							</span>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section id="presentations" class="py-20">
+				<h2 class="text-3xl font-bold mb-10 flex items-center">
+					<span class="w-2 h-8 rounded-full mr-4" style={`background-color: ${univeRed}`}></span> Selected Presentations
+				</h2>
+				
+				<div class="grid gap-4">
+					{presentations.map((p) => (
+						<div class="flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-slate-200 rounded-2xl hover:shadow-md transition-shadow">
+							<div>
+								<h4 class="font-bold text-lg text-slate-900">{p.event}</h4>
+								<p class="text-slate-600 text-sm">{p.location} — {p.role}</p>
+							</div>
+							<div class="text-sm font-bold mt-2 md:mt-0 px-3 py-1 rounded" style={`background-color: ${univeRed}15; color: ${univeRed};`}>
+								{p.date}
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="max-w-4xl mx-auto px-6 py-12 border-t border-slate-200 flex justify-between items-center text-slate-400 text-xs">
+			<p>&copy; 2026 {name} | {university}</p>
+			<p>Last updated: Jan 2026</p>
+		</footer>
+
+	</body>
+</html>

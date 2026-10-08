@@ -1,4 +1,4 @@
- ---
+---
 import '../styles/global.css';
 
 const name = "Nicolò Gebbani";
@@ -15,6 +15,12 @@ const presentations = [
 ];
 
 const wip = [
+  { 
+    title: "Heat, Incarceration, and Mortality: Evidence from Italian Prisons", 
+    authors: "Catarina Midoes, Nicolò Gebbani, Giulia Valenti", 
+    status: "Working paper",
+    link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7569899"
+  },
   { 
     title: "Roads to violence: spatial and temporal patterns in Ethiopian conflicts", 
     authors: "Nicolò Gebbani", 
@@ -116,6 +122,11 @@ const wip = [
 							<span class="inline-block mt-3 px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black uppercase tracking-widest rounded">
 								{paper.status}
 							</span>
+							{paper.link && (
+								<a href={paper.link} target="_blank" rel="noopener" class="inline-block mt-3 ml-3 text-xs md:text-sm font-semibold hover:underline" style={`color: ${univeRed}`}>
+									SSRN ↗
+								</a>
+							)}
 						</div>
 					))}
 				</div>
